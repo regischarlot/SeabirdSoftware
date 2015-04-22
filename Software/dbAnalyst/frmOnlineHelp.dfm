@@ -1,0 +1,180 @@
+object frmOnlineHelp: TfrmOnlineHelp
+  Left = 248
+  Top = 218
+  ClientHeight = 144
+  ClientWidth = 641
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  FormStyle = fsMDIChild
+  Icon.Data = {
+    000001000200101010000000040028010000260000002020100000000400E802
+    00004E0100002800000010000000200000000100040000000000800000000000
+    0000000000001000000010000000000000000000800000800000008080008000
+    0000800080008080000080808000C0C0C0000000FF0000FF000000FFFF00FF00
+    0000FF00FF00FFFF0000FFFFFF00000000000000000000000003330000000000
+    033BBB30000000033BB443B30000433BB468843B30004BB466666843B3004446
+    66B666843B30466666B66668430004E86666BB668400004E86666BBB68000004
+    886B66BB668000004886BBB68E6400000488668E640000000048886400000000
+    0004440000000000000000000000FE3F0000F81F0000E00F0000800700000003
+    000000010000000000000001000080010000C0010000E0000000F0000000F803
+    0000FC0F0000FE3F0000FFFF0000280000002000000040000000010004000000
+    0000000200000000000000000000100000001000000000000000000080000080
+    00000080800080000000800080008080000080808000C0C0C0000000FF0000FF
+    000000FFFF00FF000000FF00FF00FFFF0000FFFFFF0000000000000000000000
+    0000000000000000000000000000000000000000000000000000000000333333
+    0000000000000000000000000033333300000000000000000000003333BBBBBB
+    33000000000000000000003333BBBBBB3300000000000000003333BBBB444433
+    BB33000000000000003333BBBB444433BB3300000000443333BBBB4466888844
+    33BB33000000443333BBBB446688884433BB3300000044BBBB44666666666688
+    4433BB33000044BBBB446666666666884433BB330000444444666666BB666666
+    884433BB3300444444666666BB666666884433BB3300446666666666BB666666
+    668844330000446666666666BB6666666688443300000044EE8866666666BBBB
+    6666884400000044EE8866666666BBBB666688440000000044EE8866666666BB
+    BBBB66880000000044EE8866666666BBBBBB6688000000000044888866BB6666
+    BBBB6666880000000044888866BB6666BBBB666688000000000044888866BBBB
+    BB6688EE66440000000044888866BBBBBB6688EE664400000000004488886666
+    88EE664400000000000000448888666688EE6644000000000000000044888888
+    6644000000000000000000004488888866440000000000000000000000444444
+    0000000000000000000000000044444400000000000000000000000000000000
+    00000000000000000000000000000000000000000000FFFC0FFFFFFC0FFFFFC0
+    03FFFFC003FFFC0000FFFC0000FFC000003FC000003F0000000F0000000F0000
+    00030000000300000000000000000000000300000003C0000003C0000003F000
+    0003F0000003FC000000FC000000FF000000FF000000FFC0000FFFC0000FFFF0
+    00FFFFF000FFFFFC0FFFFFFC0FFFFFFFFFFFFFFFFFFF}
+  Menu = DataMainMenu
+  OldCreateOrder = False
+  Position = poOwnerFormCenter
+  ShowHint = True
+  Visible = True
+  OnActivate = FormActivate
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnDeactivate = FormDeactivate
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object wbOnlineHelp: TWebBrowser
+    Left = 0
+    Top = 0
+    Width = 641
+    Height = 144
+    Align = alClient
+    TabOrder = 0
+    OnCommandStateChange = wbOnlineHelpCommandStateChange
+    OnNavigateComplete2 = wbOnlineHelpNavigateComplete2
+    ExplicitLeft = 520
+    ExplicitTop = 296
+    ExplicitWidth = 300
+    ExplicitHeight = 150
+    ControlData = {
+      4C00000040420000E20E00000000000000000000000000000000000000000000
+      000000004C000000000000000000000001000000E0D057007335CF11AE690800
+      2B2E126208000000000000004C0000000114020000000000C000000000000046
+      8000000000000000000000000000000000000000000000000000000000000000
+      00000000000000000100000000000000000000000000000000000000}
+  end
+  object ToolBar: TToolBar
+    Left = 64
+    Top = 96
+    Width = 104
+    Height = 24
+    Align = alNone
+    AutoSize = True
+    ButtonHeight = 24
+    ButtonWidth = 24
+    Color = clBtnFace
+    DrawingStyle = dsGradient
+    EdgeInner = esNone
+    EdgeOuter = esNone
+    Images = frmMain.ImageList
+    ParentColor = False
+    TabOrder = 1
+    Wrapable = False
+    object btnPrevious: TToolButton
+      Left = 0
+      Top = 0
+      Action = actNavBackward
+    end
+    object btnNext: TToolButton
+      Left = 24
+      Top = 0
+      Action = actNavForward
+    end
+    object btnRefresh: TToolButton
+      Left = 48
+      Top = 0
+      Action = actEditRefresh
+    end
+    object ToolButton4: TToolButton
+      Left = 72
+      Top = 0
+      Width = 8
+      Caption = 'ToolButton4'
+      ImageIndex = 71
+      Style = tbsSeparator
+    end
+    object btnMasterHelp: TToolButton
+      Left = 80
+      Top = 0
+      Action = actHelpMaster
+    end
+  end
+  object DataMainMenu: TMainMenu
+    Images = frmMain.ImageList
+    Left = 56
+    Top = 24
+    object mnuTools: TMenuItem
+      Caption = '&Tools'
+      GroupIndex = 4
+    end
+    object mnuAction: TMenuItem
+      Caption = 'A&ction'
+      GroupIndex = 4
+      object mnuForward: TMenuItem
+        Action = actNavForward
+      end
+      object mnuBack: TMenuItem
+        Action = actNavBackward
+      end
+      object mnuRefresh: TMenuItem
+        Action = actEditRefresh
+      end
+    end
+  end
+  object ActionList: TActionList
+    Images = frmMain.ImageList
+    State = asSuspended
+    Left = 88
+    Top = 24
+    object actEditRefresh: TAction
+      Caption = '&Refresh'
+      Hint = 'Refresh Display'
+      ImageIndex = 3
+      ShortCut = 116
+      OnExecute = OnRefresh
+    end
+    object actHelpMaster: TAction
+      Caption = 'Access Online Help'
+      Enabled = False
+      Hint = 'Access Online Help'
+      ImageIndex = 68
+      OnExecute = OnHelpMaster
+    end
+    object actNavForward: TAction
+      Caption = 'Go Forward'
+      Hint = 'Go Forward'
+      ImageIndex = 92
+      OnExecute = OnGoForward
+    end
+    object actNavBackward: TAction
+      Caption = 'Go Backward'
+      Hint = 'Go Backward'
+      ImageIndex = 91
+      OnExecute = OnGoBackward
+    end
+  end
+end

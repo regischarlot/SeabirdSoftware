@@ -1,0 +1,128 @@
+TdfsSplitter v1.07
+
+
+Description:
+  A descendant of the TSplitter component (D3, C3, & D4) that adds a
+  "maximize - restore" button.  This mimics the behavior of the splitter in
+  Netscape Communicator v4.5.  Clicking the button moves the splitter to its
+  farthest extreme.  Clicking again returns it to the last position.
+
+
+Contact Information:
+  The lateset version will always be available on the web at:
+    http://www.delphifreestuff.com
+  If you have any questions, comments or suggestions, please use the Delphi
+  Free Stuff Support Forum at: 
+    http://www.delphifreestuff.com/discus/
+  If, for some reason, you can not use the web-based support forum, you can
+  email me at bstowers@delphifreestuff.com.  However, the support forum will
+  always take precedence over direct email since it provides a resource that
+  others can use when they have a problem.  Every message posted to the forum
+  is emailed directly to this account, so emailing me directly will not get 
+  your message to me any faster.  It will only make the message less important
+  for me to respond to since only one person (you) is benefiting from it
+  instead of everyone interested.  Having said all that, please do email me 
+  directly if it is regarding something that isn't really support related, 
+  i.e. just to say thanks (as novel as that idea is).  
+
+
+Installation:
+  Delphi 1, Delphi 2, C++Builder 1:
+    * This component is not compatible with Delphi 1, 2, or C++Builder 1.
+  
+  Delphi 3 and up, C++Builder 3 and up:
+    * Do one of the following:
+      + Create a new package by selecting File | New and choosing Package from
+        the New tab in the dialog.
+      + Open an existing package file.  I suggest you do this if you already 
+        have a package that you like to use for small, third party components.
+        I specifically have a package named "3rdParty.dpk" that I use for 
+        small components that come from other people.  Or, if you are using
+        several of my components, you might create a "DFS.dpk" package and 
+        use it for all of my DFS components.
+    * In the resulting package window, click the Add button.
+    * In the Add dialog, on the Add Unit tab, enter the full path name of the 
+      component's registration unit (the unit that ends with 'Reg.pas', i.e. 
+      'BrowseDrReg.pas') and click OK.
+    * You may want to add the other source files (*.pas) to the package as 
+      well in the same manner as you did the registration unit.  While this is
+      not required, not doing it will cause compiler warnings when the package
+      is compiled.  The component will function fine either way, but I 
+      personally find the warnings very irritating and am not happy until 
+      every compiler warning and hint is gone.
+    * If this package is new, or it has never been installed, click the 
+      Install button in the package window.  If this package is already 
+      installed in Delphi, click the Compile button.
+
+
+Notes:
+  * If you like this Netscape style enhancement, you may also be interested in
+    the TdfsToolBar component on my web site.
+  * Button arrow directions follow the Align property.  I tried with an
+    independent ButtonDirection property, but it turned out to be just to nasty
+    from both a coding and useage perspective.
+  * A possible future enhancement if there is any interest: The D4 version of
+    TSplitter has an OnPaint event.  The button paint's after this fires, so you
+    can paint the bar without worrying about the button itself.  It might be
+    nice to have an OnPaintButton event so that could be painted differently as
+    well.
+
+Known Issues:
+  * The fix implemented here for the TSplitter bug may not work on all versions
+    of Delphi.  It does work on Build 5.37 (from About box), but I've had one
+    other person tell me he has Build 5.33 and the DoCanResize method is not
+    protected virtual in that.
+  * I can't control when the OnMoved event fires, and the way TSplitter is set
+    up, it fires before the controls are actually moved in the maximize and
+    restore processes.  So, do not rely on positions if you code only for the
+    OnMove event.  The OnMaximize and OnRestore events do fire after the
+    controls have moved, so if you need that information, you can get it there.
+  * It is possible to get the direction arrows to paint outside of the button
+    if you use silly values (like a button width of 25 and height of 40).  If
+    you're silly enough to do it, you're silly enough to like it.  I don't
+    consider it worth the trouble to fix. If you can make a reasonable case
+    otherwise, send me email.
+
+
+TdfsSplitter Revision History:
+  1.07:  + It's *really* D5 compatible now.  Small change between the D5 eval 
+           version and the real, shipping D5 version broke it.
+         + Added simple demo.
+  1.06:  + Updated for Delphi 5 compatibility.
+  1.05:  + Updated for C++Builder 4 compatibility.
+  1.04:  + Enabled property added.  Thanks to Bob Arnson for implementing and
+           sharing with us.  If the splitter is not enabled, the button is not
+           shown and the cursor reverts to the default instead of a splitter.
+         + Added DFSSplitterReg unit.  All IDE specific code (i.e. registering
+           the component, property editors, etc.) are contained in this unit.
+           This was done for two primary reasons:  1) Using the component in a
+           Delphi or C++Builder expert would register the component as well.
+           2) Reduce code size in some cases -- usually the smart linker removes
+           this sort of stuff since the app never references it, but now it's
+           for certain since it isn't even in the unit.  This change means that
+           you need to install the component using the new "registration" unit
+           instead of the unit containing the component.
+  1.03:  + AutoHighlightColor property added by Ken Semerkant
+           (ksemerkant@usa.net).  Setting this property to TRUE will calculate
+           the highlight color for the splitter button based on the user's
+           window caption system color.
+  1.02:  + Clicking beside (but not right on) the button when it was in the
+           maximized state would cause it to lose it's maximized state.
+         + Did the DoMaximize and DoRestore methods wrong.  The OnMaximize and
+           OnRestore events didn't fire if you set Maximized property in code.
+  1.01:  + Added RestorePos property to public declaraions.  It is the position
+           that a maximized splitter will return to.  It is useful for saving
+           and restoring the state of a splitter between sessions.  Thanks to
+           Marcus Monning (info@mmsoftware.com) for this suggestion.
+         + Fixed the nasty bug in D4 where TSplitter (not just TdfsSplitter)
+           could get "stuck" at one of it's extremes.  Thanks again to Marcus
+           Monning for tracking this ExtCtrls.pas bug down.
+         + Wasn't honoring the MOVEMENT_TOLERANCE value that's used to tell it
+           when a small move is considered really a move and when it is a button
+           click.
+         + Certain conditions could cause the arrows to not be redrawn.
+         + Cursor setting changed a bit to make it more like Netscape.
+         + Marked Version property as not stored since it doesn't need to be.
+           It would only add to the size of your EXE, and that's silly.
+  1.00:  + Initial release
+

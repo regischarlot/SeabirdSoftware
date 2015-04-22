@@ -1,0 +1,44 @@
+<html lang=en>
+	<HEAD>
+		<style type="text/css">
+			<!--
+				A			{font-family: Arial; color:"%ref_anchor%"; BACKGROUND-COLOR: transparent; font-weight: bold; font-size: 9pt; }
+				a:visited	{color: %ref_anchor%; } 
+				a:hover		{color: %ref_anchor%; background-color: %ref_anchorhoverbg%; cursor:default; } 
+				TD			{font-family: Arial; color: black; font-size: 9pt; margin: auto; }
+				TD.Header	{font-family: Arial; color: black; font-size: 12pt; font-weight: 500; margin: auto; padding: 10px; background-color: #F6FAFD;}
+				TD.Item		{font-family: Arial; color: black; font-size: 9pt; margin: auto; padding: 10px;}
+				TD.Line		{background-color:"#d0d0d0"; }
+				.Header2	{font-family: Arial; color: black; font-size: 12pt; font-weight: bold; }
+				
+				TR.Small td				{text-align: Right; font-family: Arial; color: black; font-size: 8pt; }
+				TR.Title td			{background: #9681B7; font-family: Arial; color: white; font-size: 8pt; font-weight: bold; text-align: center; }
+				TR.Background td	{background: %colBG%;}
+				TR.Highlight td		{background: #BBDB88;}
+				TR.Alert td 		{background: #CF0226; color: white; font-weight: bold;}
+				TD.HeaderColor				{background-color: #F6FAFD;}
+			-->
+		</style>
+	</HEAD>
+	<body BGCOLOR="white" marginwidth="0" marginheight="0" leftmargin="0" topmargin="0">
+		<table border="0" cellpadding="0" cellspacing="0" width="100%">
+			
+			<tr>
+				<td class="Header HeaderColor">%ref_ObjectType%&nbsp;<nospan class="Header2">%ref_ObjectName%</nospan></td>
+				<td class="HeaderColor" style="text-align:right;"><img src="%ref_ApplicationPath%Images\Island.gif" border="0"></td>
+			</tr>
+			<tr><td colspan="2" height="0" class="Line" ></td></tr>
+
+			<tr><td colspan="2">
+				<table border="0" cellpadding="0" cellspacing="0">
+					<tr><td class="Item" valign="top">Script</td><td class="Item" valign="top">Get <a href="%ref_FullScript%">full script</a> sorted by object dependency.</td></tr>
+					<tr><td height="0"></td><td height="0" class="Line" ></td></tr>
+					<tr><td class="Item" valign="top">Objects</td><td class="Item" valign="top"><table>%ref_Content%</table></td></tr>
+					<tr><td height="0"></td><td height="0" class="Line" ></td></tr>
+					<tr><td class="Item" valign="top">Help</td><td class="Item">%ref_Help%</td></tr>
+				</table>
+			</td></tr>
+
+		</table>
+	</body>
+</html>

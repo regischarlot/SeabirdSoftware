@@ -1,0 +1,54 @@
+package CustomComponents;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$IMPLICITBUILD OFF}
+{$DEFINE PACKAGE}
+
+requires
+  rtl,
+  vcl,
+  dbrtl,
+  vcldb,
+  vclx,
+  vclie,
+  designide,
+  xmlrtl,
+  vclactnband,
+  inet,
+  soaprtl,
+  IndyCore,
+  IndySystem,
+  IndyProtocols;
+
+contains
+  dbListView in 'dbListView.pas',
+  ImageListBoxLib in 'ImageListBoxLib.pas',
+  PreferencePanel in 'PreferencePanel.pas',
+  ADODB_TLB in 'ADODB_TLB.pas',
+  Grid in 'Grid.pas',
+  GraphPanel in 'GraphPanel.pas',
+  Progress in 'Progress.pas',
+  DFSSplitterReg in 'DFSSplitterReg.pas';
+
+end.
